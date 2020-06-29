@@ -1,0 +1,267 @@
+#chooseBall {
+  z-index: 100;
+  position: absolute;
+  width: 160px;
+  right: 601px;
+  bottom: 10px;
+  margin-right: 60px;
+  /* transform: scale(1.5); */
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 0;
+  position: absolute;
+}
+
+.modal-xl {
+  min-width: 1000px;
+  max-width: 1200px;
+}
+
+button {
+  background-color: black;
+}
+
+.modal-header .close {
+  margin-top: -10px;
+}
+
+.glyphicon-star-empty {
+  color: red;
+}
+
+#map .centerMarker {
+  position: absolute;
+  /*url of the marker*/
+  background-image: url(../public/img/nhanvat5.png);
+  /*center the marker*/
+  /* top: 21%;
+  left: 33%; */
+  top: 4%;
+  left: 30%;
+  z-index: 1;
+  /*fix offset when needed*/
+  /* margin-left: -10px;
+  margin-top: -34px; */
+  /*size of the image*/
+  /* height: 336px;
+  width: 386px; */
+  height: 483px;
+  width: 479px;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.active, .ballz:hover {
+  background: gray;
+}
+
+.anh:hover {
+  transform: scale(1.5);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.center-col {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.usernameList {
+  font-size: xx-large;
+}
+
+.margin-3 {
+  margin: 3px;
+}
+
+.avatar-friend-list {
+  background: none;
+  border: none;
+}
+
+.avatar-friend-list:hover {
+  transform: scale(1.05);
+}
+
+.profile-usermenu {
+  margin: auto;
+  margin-top: 30px;
+}
+
+.pokefriend-icon {
+  width: 50%;
+  margin-top: -33px;
+}
+
+#friendInfoModal-title:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#friendInfoModal-title {
+  border-radius: 50%;
+  background-color: gold;
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.avatar-friend-list-img {
+  width: 40%;
+  height: auto;
+}
+
+.friend-info-1 {
+  margin-right: -71px;
+  width: 25%;
+}
+
+.friend-info-2 {
+  margin-top: 44%;
+  width: 49%;
+  vertical-align: bottom;
+  margin-right: -75px;
+}
+
+.friend-info-center {
+  text-align: center;
+}
+
+.tab-pane {
+  background-color: white;
+}
+
+.nav-tabs>li>a {
+  border-radius: 0 0 0 0;
+  margin-right: 0px;
+}
+
+.nav {
+  display: block;
+}
+
+#btnFriend, #btnPokemon, #btnShop, #btnItems, #btnPokedex {
+  border: none;
+  background-color: transparent;
+}
+
+.overlay {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+#open-gift-model-content {
+  margin: auto;
+}
+
+#open-gift-model-items {
+  margin: auto;
+  display: none;
+}
+
+#open-gift-model {
+  z-index: 9990;
+}
+
+.gift-open-img {
+  margin: auto;
+}
+
+#open-gift-model-close {
+  display: none;
+}
+
+.random-items-img {
+  width: 200px;
+  height: auto;
+}
+
+.random-items-title {
+  color: white;
+}
+
+.random-items-amount {
+  color: white;
+}
+
+.gm-fullscreen-control, .gm-bundled-control-on-bottom, .gmnoprint, .gm-style-cc {
+  display: none;
+}
+
+.text-green {
+  color: green;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.bag-coin {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50px
+}
+.price-title {
+  margin: auto;
+  text-align: center;
+}
+
+.btn-price {
+  float: right;
+  margin: auto;
+  width: 80px;
+  height: 30px;
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <style>
+    #map {
+      width: 100%;
+      height: 860px;
+      background-color: white;
+    }
+
+
+    #map .centerMarker {
+      position: absolute;
+      /*url of the marker*/
+      background-image: url(/public/img/nhanvat.png);
+      /*center the marker*/
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      /*fix offset when needed*/
+      margin-left: -10px;
+      margin-top: -34px;
+      /*size of the image*/
+      height: 100px;
+      width: 100px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<!-- Lấy Map -->
+
+<body>
+  <div id="map"></div>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script>
+    var marker;
+    // var position = [10.851137, 106.772431];
+
+    // var numDeltas = 100;
+    // var delay = 10; //milliseconds
+    // var i = 0;
+    // var deltaLat;
+    // var deltaLng;
+    // function transition(result) {
+    //   i = 0;
+    //   deltaLat = (result[0] - position[0]) / numDeltas;
+    //   deltaLng = (result[1] - position[1]) / numDeltas;
+    //   moveMarker();
+    // }
+
+    // function moveMarker() {
+    //   position[0] += deltaLat;
+    //   position[1] += deltaLng;
+    //   var vitriSPKT = new google.maps.LatLng(position[0], position[1]);
+    //   marker.setTitle("Latitude:" + position[0] + " | Longitude:" + position[1]);
+    //   marker.setPosition(vitriSPKT);
+    //   if (i != numDeltas) {
+    //     i++;
+    //     setTimeout(moveMarker, delay);
+    //   }
+    // }
+    //function Tạo MAP
+    var pos, marker1;
+    let p = new Array();
+    var numDeltas = 100;
+    var delay = 10; //milliseconds
+    var i = 0;
+    var deltaLat;
+    var deltaLng;
+    // function transition(result) {
+    //   i = 0;
+
+
+    //   deltaLat = (result[0] - p[0]) / numDeltas;
+    //   deltaLng = (result[1] - p[1]) / numDeltas;
+    //   moveMarker();
+    // }
+
+    // function moveMarker() {
+    //   p[0] += deltaLat;
+    //   p[1] += deltaLng;
+    //   var a = new google.maps.LatLng(p[0], p[1]);
+    //   //    marker.setTitle("Latitude:" + position[0] + " | Longitude:" + position[1]);
+    //   marker1.setPosition(a);
+    //   if (i != numDeltas) {
+    //     i++;
+    //     setTimeout(moveMarker, delay);
+    //   }
+    // }
+
+    function initMap() {
+
+      var vitriSPKT = { lat: 10.851137, lng: 106.772431 };
+      // var vitriSPKT = new google.maps.LatLng(position[0], position[1]);
+      //Custom MAP nè _ Code JavaScript nhan
+      var map = new google.maps.Map(document.getElementById('map'),
+        {
+          zoom: 19.5,
+          mapTypeControl: false,
+          center: vitriSPKT,
+          gestureHandling: 'cooperative',
+          styles:
+            [
+              {
+                featureType: 'all',
+                elementType: 'labels',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'administrative.locality',
+                elementType: 'all',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'landscape',
+                elementType: 'all',
+                stylers: [
+                  {
+                    color: '#AFFFA0'
+                  }
+                ]
+              },
+              {
+                featureType: 'poi',
+                elementType: 'all',
+                stylers: [
+                  {
+                    color: '#EAFFE5'
+                  }
+                ]
+              },
+              {
+                featureType: 'poi.business',
+                elementType: 'all',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'poi.government',
+                elementType: 'all',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'poi.park',
+                elementType: 'geometry',
+                stylers: [
+                  {
+                    color: '#f9f8c7'
+                  }
+                ]
+              },
+              {
+                featureType: 'poi.park',
+                elementType: 'labels',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'road',
+                elementType: 'geometry',
+                stylers: [
+                  {
+                    color: '#59A499'
+                  }
+                ]
+              },
+              {
+                featureType: 'road',
+                elementType: 'geometry.stroke',
+                stylers: [
+                  {
+                    color: '#F0FF8D'
+                  },
+                  {
+                    weight: 2.2
+                  }
+                ]
+              },
+              {
+                featureType: 'transit.line',
+                elementType: 'geometry',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'transit.station.airport',
+                elementType: 'geometry.fill',
+                stylers: [
+                  {
+                    color: '#fdfabf'
+                  }
+                ]
+              },
+              {
+                featureType: 'water',
+                elementType: 'all',
+                stylers: [
+                  {
+                    visibility: 'on'
+                  },
+                  {
+                    color: '#1A87D6'
+                  }
+                ]
+              }
+            ]
+        }
+      );
+
+      var infoWindow = new google.maps.InfoWindow;
+      // Bắt vị trí GPS
+      var icontakashi = "public/img/nhanvat.png"
+      //Dòng này lấy dấu chấm đỏ định vị
+      // var marker = new google.maps.Marker({
+      //   position: vitriSPKT,
+      //   map: map,
+      //   icon:icontakashi,
+      //   draggable:true,
+      //   animation:google.maps.Animation.DROP
+      //  });
+      marker = new google.maps.Marker(
+        {
+          map: map,
+          position: vitriSPKT,
+
+        }
+      );
+      // google.maps.event.addListener(map, 'click', function (event) {
+      //   var result = [event.latLng.lat(), event.latLng.lng()];
+      //   console.log(result);
+
+      //   transition(result);
+      // });
+
+      ///
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          //  position = [pos.lat, pos.lng];
+          // p[0] = pos.lat;
+          // p[1] = pos.lng;
+          infoWindow.setPosition(pos);
+          //Dòng này báo vị trí tìm thấy
+          // infoWindow.setContent('Bạn đang ở đây');
+          //infoWindow.open(map);
+          map.setCenter(pos);
+          //Dấu chám độ GPSréul
+          $('<div/>').addClass('centerMarker').appendTo(map.getDiv())
+          // var icon = {
+          //   // url: "/public/img/nhanvat.png", // url
+          //   scaledSize: new google.maps.Size(100, 100), // scaled size
+          //   origin: new google.maps.Point(0, 0), // origin
+          //   anchor: new google.maps.Point(0, 0) // anchor
+          // };
+          
+     
+
+          marker1 = new google.maps.Marker(
+            {
+              position: pos,
+              // map: map,
+              // icon: icon,
+              // draggable:true,
+            }
+            
+          )
+          
+          
+        },
+       
+
+          function () {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+      }
+      else {
+        alert('Không thể tìm thấy vị trí!')
+      }
+
+      //   } else { 
+      //     // Browser doesn't support Geolocation
+      //     handleLocationError(false, infoWindow, map.getCenter());
+      //   }
+      // }
+
+      // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      //   infoWindow.setPosition(pos);
+      //   infoWindow.setContent(browserHasGeolocation ?
+      //                         'Error: The Geolocation service failed.' :
+      //                         'Error: Your browser doesn\'t support geolocation.');
+      //   infoWindow.open(map);
+    }
+
+
+
+
+
+      //API Google MAP _ Lấy API từ Console
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7b772LSkOv7NBUUA_QiUl5SQogc0MpIY&callback=initMap">
+    </script>
+
+</body>
+
+</html>

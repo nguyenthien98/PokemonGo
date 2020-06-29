@@ -1,0 +1,206 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+#pokeball {
+  z-index: 1;
+  position: absolute;
+  width: 5%;
+}
+
+.title {
+  margin-top: 17%;
+  margin-left: 10%;
+  font-size: 251%;
+  color: white;
+  margin-top: 30px;
+  margin-left: 15px;
+}
+
+.menuPic {
+  width: 28%;
+  height: 10%;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  opacity: 0.8;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: white
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.center {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#leveluser {
+  margin-left: 15px;
+}
+
+#nameuser {
+  margin-top: 0px;
+  color: #337ab7;
+  font-size: 100%;
+  padding: 0px;
+  text-decoration: none
+}
+
+/* Profile container */
+
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+/* .profile-userpic {
+   margin-left: 25px;
+} */
+
+.profile-avatar img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 30%;
+  height: auto;
+  /* margin-right: -25px; */
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}

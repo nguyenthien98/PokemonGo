@@ -1,0 +1,50 @@
+{
+  "name": "expense-manager",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "bcrypt": "^3.0.6",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "deasync": "^0.1.14",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "expressjs": "^1.0.1",
+    "mongoose": "^5.4.10",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.9",
+    "paypal-rest-sdk": "^1.8.1",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-dom": "^16.8.1",
+    "react-modal": "^3.8.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^3.0.1",
+    "socket.io": "^2.2.0"
+  },
+  "scripts": {
+    "webpack": "webpack",
+    "start": "npm run webpack && nodemon --exec babel-node -- bin/www"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  }
+}

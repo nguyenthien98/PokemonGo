@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/css/stylegameez.css">
+  <link rel="stylesheet" href="asset/css/menu.css">
+
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/core-img/favicon.ico">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="css/alerts.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/css/stylegameez.css">
+  <link rel="stylesheet" href="asset/css/menu.css">
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7b772LSkOv7NBUUA_QiUl5SQogc0MpIY&libraries=geometry"></script>
+
+  <style>
+    .Candyz:hover {
+      background: gray;
+    }
+  </style>
+</head>
+<!-- Lấy Map -->
+
+<body>
+  <!-- <audio src="../public/sound/Attention.mp3" controls>
+    <embed src="../public/sound/Attention.mp3" style="display: none" loop="true" autostart="true">
+  </audio> -->
+  <!-- 
+  <audio id="player" autoplay loop>
+    <source src="../public/sound/pokemonTheme.mp3" type="audio/mp3">
+  </audio> -->
+  <img id="chooseBall" src="images/items/pokeballStrike.png" />
+
+  <div id="message-box">
+    <!-- <div class="alert alert-info alert-success-style2 alert-st-bg1 message-box" style="bottom: unset;">
+      <i class="fa fa-volume-up edu-inform admin-check-pro admin-check-pro-clr1" aria-hidden="true"></i>
+      <p>
+        <marquee><strong>Info!</strong> Hoc HTML tai VietJack - Vi du cach su dung the marquee.</marquee>
+      </p>
+    </div> -->
+  </div>
+
+  <div id="notice-box">
+    <!-- <div class="alert alert-info alert-success-style2 alert-st-bg1">
+      <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+        <span class="icon-sc-cl" aria-hidden="true">×</span>
+      </button>
+      <i class="fa fa-info-circle edu-inform admin-check-pro admin-check-pro-clr1" aria-hidden="true"></i>
+      <p><strong>Info!</strong> Indicates a neutral informative change.</p>
+    </div> -->
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <ul>
+      <li style="display: flex; margin-top: -45px;">
+        <img style="width: 35%; border-radius: 50%;" class="menuPic" src="asset/img/ash.png" />
+        <div>
+          <ul>
+            <li class="title">
+              <a href="#" id="nameuser"></a>
+            </li>
+            <li id="leveluser" style="color: white;font-size:150%">
+              Level
+            </li>
+            <li id="leveluser" style="color: white;font-size:150%">
+              <img src="./images/coin.ico" height="20px">
+              <span id="coinuser"></span>
+            </li>
+            <li style="display: flex">
+              <button style="font-size: large;padding-left: 15px; color: gold; border:none; background: transparent"
+                data-toggle="modal" data-target="#paypalModal"><b>Get Coins</b></button>
+              <a style="font-size: large;padding-left: 15px; color: aqua; text-decoration:none;"
+                href="/logout"><b>Logout</b></a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <hr>
+      <li style="display: flex;">
+        <img class="menuPic" src="asset/img/images.png" />
+        <div>
+          <button id="btnFriend" class="title">Friends</button>
+        </div>
+      </li>
+      <li style="display: flex;">
+        <img class="menuPic" src="asset/img/pokemon_PNG93.png" />
+        <div>
+          <button id="btnPokemon" class="title">Pokemon</button>
+        </div>
+      </li>
+      <!-- Button Pokemon -->
+      <li style="display: flex;">
+        <img class="menuPic" src="asset/img/Shop.png" />
+        <div>
+          <button id="btnShop" onclick="functionShop()" class="title">Shop</button>
+        </div>
+      </li>
+      <li style="display: flex">
+        <img class="menuPic" src="asset/img/item.png" />
+        <div>
+          <button id="btnItems" class="title">Items</button>
+        </div>
+      </li>
+
+      <li style="display: flex;">
+        <img class="menuPic" src="asset/img/pokedex.png" />
+        <div>
+          <button id="btnPokedex" class="title">Pokedex</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <img onclick="openNav()" src="asset/img/poketool.png" id="pokeball" />
+
+
+  <!--  User Modal -->
+  <div id="userModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="modal-title" class="modal-title">Pokemons List</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="width: auto;" class="container">
+            <div id="userModal-body" class="row">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  Video Quang Cao Modal -->
+  <div id="VideoModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="modal-title" class="modal-title">VIDEO</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="width: auto;" class="container">
+            <!-- <div id="ballsModal-body" class="row"></div> -->
+            <div id="player" style="margin-left: -1%"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <script>
+
+    $('#VideoModal').on('hidden.bs.modal', function () {
+      // do something here
+      stopVideo();
+    })
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '450',
+        width: '450',
+
+        videoId: 'qxWcYPQUgAE',
+
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+      event.target.playVideo();
+      player.mute();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    var done = false;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !done) {
+        //setTimeout(stopVideo, 6000);
+        done = true;
+      }
+    }
+    function stopVideo() {
+      player.stopVideo();
+    }
+
+
+    // var player = iframe.getElementById('player');
+    // player.mute();
+  </script>
+
+
+  <!--  Paypal Modal -->
+  <div id="paypalModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="modal-title" class="modal-title">Paypal</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="width: auto;" class="container">
+            <div id="paypalModal-body" class="row">
+              <div class="row w-100">
+                <div class="col-4">
+                  <img src="images/coins/bag.png" class="bag-coin" />
+                </div>
+                <div class="col-4 price-title">
+                  <span class="text-danger text-center">1000 coins</span>
+                </div>
+                <div class="col-4 m-auto">
+                  <form action="/paypal/pay" method="post">
+                    <button type="submit" class="btn-primary btn-price" name="amount" value="1">$1</button>
+                  </form>
+                </div>
+              </div>
+              <div class="row w-100">
+                <div class="col-4">
+                  <img src="images/coins/bag.png" class="bag-coin" />
+                </div>
+                <div class="col-4 price-title">
+                  <span class="text-danger text-center">2200 coins</span>
+                </div>
+                <div class="col-4 m-auto">
+                  <form action="/paypal/pay" method="post">
+                    <button type="submit" class="btn-primary btn-price" name="amount" value="2">$2</button>
+                  </form>
+                </div>
+              </div>
+              <div class="row w-100">
+                <div class="col-4">
+                  <img src="images/coins/bag.png" class="bag-coin" />
+                </div>
+                <div class="col-4 price-title">
+                  <span class="text-danger text-center">7000 coins</span>
+                </div>
+                <div class="col-4 m-auto">
+                  <form action="/paypal/pay" method="post">
+                    <button type="submit" class="btn-primary btn-price" name="amount" value="5">$5</button>
+                  </form>
+                </div>
+              </div>
+              <div class="row w-100">
+                <div class="col-4">
+                  <img src="images/coins/bag.png" class="bag-coin" />
+                </div>
+                <div class="col-4 price-title">
+                  <span class="text-danger text-center">15000 coins</span>
+                </div>
+                <div class="col-4 m-auto">
+                  <form action="/paypal/pay" method="post">
+                    <button type="submit" class="btn-primary btn-price" name="amount" value="10">$10</button>
+                  </form>
+                </div>
+              </div>
+              <div class="row w-100">
+                <div class="col-4">
+                  <img src="images/coins/bag.png" class="bag-coin" />
+                </div>
+                <div class="col-4 price-title">
+                  <span class="text-danger text-center">35000 coins</span>
+                </div>
+                <div class="col-4 m-auto">
+                  <form action="/paypal/pay" method="post">
+                    <button type="submit" class="btn-primary btn-price" name="amount" value="20">$20</button>
+                  </form>
+                </div>
+              </div>
+              <div class="row w-100">
+                <div class="col-4">
+                  <img src="images/coins/bag.png" class="bag-coin" />
+                </div>
+                <div class="col-4 price-title">
+                  <span class="text-danger text-center">100000 coins</span>
+                </div>
+                <div class="col-4 m-auto">
+                  <form action="/paypal/pay" method="post">
+                    <button type="submit" class="btn-primary btn-price" name="amount" value="50">$50</button>
+                  </form>
+                </div>
+              </div>
+              <div class="row w-100">
+                <div class="col-4">
+                  <img src="images/coins/bag.png" class="bag-coin" />
+                </div>
+                <div class="col-4 price-title">
+                  <span class="text-danger text-center">250000 coins</span>
+                </div>
+                <div class="col-4 m-auto">
+                  <form action="/paypal/pay" method="post">
+                    <button type="submit" class="btn-primary btn-price" name="amount" value="100">$100</button>
+                  </form>
+                </div>
+              </div>
+              <div class="row w-100">
+                <div class="col-4">
+                  <img src="images/coins/bag.png" class="bag-coin" />
+                </div>
+                <div class="col-4 price-title">
+                  <span class="text-danger text-center">700000 coins</span>
+                </div>
+                <div class="col-4 m-auto">
+                  <form action="/paypal/pay" method="post">
+                    <button type="submit" class="btn-primary btn-price" name="amount" value="200">$200</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Het bong Modal -->
+  <div id="HetBongModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <a href="" id="VideoModal-title">&#8249;</a> -->
+          <h4 id="modal-title" class="modal-title">Hết bóng rồi!!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="width: auto;" class="container">
+            <div id="HetBongModal-body" class="row">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="btnvideobong" type="button" style="margin-right: 53%" class="btn btn-default">Video</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Profile Friend Modal -->
+  <div id="friendInfoModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="" id="friendInfoModal-title">&#8249;</a>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="width: auto;" class="container">
+            <div id="friendInfoModal-body" class="row">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Pokemon Modal -->
+  <div id="pokemonModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-xl">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="modal-title" class="modal-title">Pokemons List</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="width: auto;" class="container">
+            <div id="pokemonModal-body" class="row">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Shop Modal -->
+  <div id="shopModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:1150px;">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="width:1150px;margin-left: -348px;">
+        <div class="modal-header" style="width:1150px;margin-top: -21px;">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 id="modal-title" class="modal-title">SHOP</h4> -->
+        </div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <div class="container">
+            <a class="navbar-brand" href="#"><img src="images/logopika.png" alt="" style="
+    margin-top: -13px;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+              aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault"
+              style="margin-left: 436px; ">
+              <ul class="navbar-nav m-auto" style="margin-left: 436px;">
+                <li class="nav-item m-auto">
+                  <a href="#" onclick="functionShop()" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" onclick="functionBall()" class="nav-link">Ball</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" onclick="functionCandy()" class="nav-link">Candy</a>
+                </li>
+                <!-- <li class="nav-item active">
+                      <a class="nav-link">Cart <span class="sr-only">(current)</span></a>
+                  </li> -->
+
+              </ul>
+
+              <form class="form-inline my-2 my-lg-0">
+                <div class="input-group input-group-sm">
+                  <input style="margin-top: 8px; margin-left: 27px;" type="textItem" class="form-control"
+                    aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search Item....">
+                  <div class="input-group-append">
+                    <button style="width: 60px;height: 30px;margin-top: 8px;" type="button"
+                      class="btn btn-secondary btn-number">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <a style=" position: relative;right: -50px;margin-top: 9px;" class="btn btn-success btn-sm ml-3">
+                  <!-- <i class="fa fa-shopping-cart"></i> Cart -->
+                  <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span
+                      class="badge badge-notify my-cart-badge"></span></span>
+                  <!-- <span class="badge badge-notify my-cart-badge">3</span> -->
+                </a>
+              </form>
+            </div>
+          </div>
+        </nav>
+        <div class="modal-body" style="    color: #3c763d;">
+          <div style="width: auto;" class="container">
+            <div id="shopModal-body" class="row">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Thoát Khỏi Shop</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog cart" role="document">
+      <!-- Modal content-->
+      <div class="modal-content cart" style="width: 954px;margin-left: -249px;">
+        <div class="modal-header cart">
+          <!-- <h4 id="modal-title" class="modal-title">Quick View</h4> -->
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-hover table-condensed" id="idCartTable"></table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="classCheckoutCart">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- View Modal -->
+  <div id="viewModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h4 id="modal-title" class="modal-title">Quick View</h4> -->
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="width: auto;" class="container">
+            <div id="viewModal-body" class="row">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Items modal -->
+  <div id="ItemsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="modal-title" class="modal-title">ITEMS LIST</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="width: auto;" class="container">
+            <div id="itemsModal-body" class="row">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Balls modal -->
+  <div id="BallsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="modal-title" class="modal-title">BALLS LIST</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="width: auto;" class="container">
+            <div id="ballsModal-body" class="row">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Candy modal -->
+  <div id="CandyModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="modal-title" class="modal-title">Candy LIST</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="width: auto;" class="container">
+            <div id="CandyModal-body" class="row">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Friend Modal -->
+  <div id="FriendModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:1150px;">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="width:1150px;margin-left: -348px;">
+        <div class="modal-header" style="width:1150px;margin-top: -21px;">
+        </div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <div class="container">
+            <a class="navbar-brand" href="#"><img src="images/icons/pokefriend-icon.png" alt=""
+                class="pokefriend-icon"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+              aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault"
+              style="margin-left: 360px; ">
+              <ul class="navbar-nav m-auto" style="margin-left: 436px;">
+                <li class="nav-item m-auto">
+                  <a href="#" id="functionShowFriends" onclick="functionShowFriends()" class="nav-link active"
+                    style="background: none">Friends</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" id="functionShowGifts" onclick="functionShowGifts()" class="nav-link"
+                    style="background: none">Gifts</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" id="functionShowRequests" onclick="functionShowRequests()" class="nav-link"
+                    style="background: none">Requests</a>
+                </li>
+              </ul>
+
+              <div class="form-inline my-2 my-lg-0">
+                <div class="input-group input-group-sm">
+                  <input style="margin-top: 8px; margin-left: 16px;" type="textItem" id="inputusername"
+                    class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                    placeholder="Find new friend....">
+                  <div class="input-group-append">
+                    <button id="btnFindFriend" style="width: 60px;height: 30px;margin-top: 8px;" type="button"
+                      class="btn btn-secondary btn-number">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="modal-body" style="color: #3c763d;">
+          <div style="width: auto;" class="container">
+            <div id="friendModal-body" class="row">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Open gifts modal -->
+  <div id="open-gift-model" class="overlay">
+    <a href="javascript:void(0)" id="open-gift-model-close" class="closebtn" onclick="closeGiftModel()">&times;</a>
+    <div id="open-gift-model-content" class="overlay-content row">
+    </div>
+    <div id="open-gift-model-items" class="overlay-content row">
+    </div>
+  </div>
+
+  <!-- Open Pokemon evolution modal -->
+  <div id="open-gift-model" class="overlay">
+    <a href="javascript:void(0)" id="open-gift-model-close" class="closebtn" onclick="closeGiftModel()">&times;</a>
+    <div id="open-gift-model-content" class="overlay-content row">
+    </div>
+    <div id="open-gift-model-items" class="overlay-content row">
+    </div>
+  </div>
+
+  <!--  Pokedex Modal -->
+  <div id="pokedexModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:1150px;">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="width:1150px;margin-left: -348px;">
+        <div class="modal-header" style="width:1150px;margin-top: -21px;">
+        </div>
+        <div class="modal-body" style="color: #3c763d;">
+          <div style="width: auto;" class="container">
+            <div id="pokedexModal-body">
+              <ul class="nav nav-tabs nav-justified">
+                <li class="active"><a id="kanto-title" data-toggle="pill" href="#kanto-list">Kanto</a></li>
+                <li><a id="johto-title" data-toggle="pill" href="#johto-list">Johto</a></li>
+                <li><a id="hoenn-title" data-toggle="pill" href="#hoenn-list">Hoenn</a></li>
+                <li><a id="sinnoh-title" data-toggle="pill" href="#sinnoh-list">Sinnoh</a></li>
+              </ul>
+              <br />
+              <div class="tab-content">
+                <div id="kanto-list" class="tab-pane fade in active row">
+                </div>
+                <div id="johto-list" class="tab-pane fade row">
+                </div>
+                <div id="hoenn-list" class="tab-pane fade row">
+                </div>
+                <div id="sinnoh-list" class="tab-pane fade row">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script>
+    var ballName = "Ball Basic";
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "330px";
+      document.getElementById("pokeball").style.width = "0";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("pokeball").style.width = "5%";
+    }
+  </script>
+  <div id="map">
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
+
+  <script>
+    var pokelist;
+    //var pokestopList;
+    $(document).ready(function () {
+      $.getJSON("/getPoke", function (data) {
+        pokelist = data;
+      })
+    });
+    // $(document).ready(function () {
+    //   $.getJSON("/getPokestop", function (data) {
+    //     pokestopList = data;
+    //   });
+    // })
+    //click choose ball
+    $("#chooseBall").click(function () {
+      console.log('Button Items clicked!');
+      event.preventDefault();
+      $.ajax({
+        type: "get",
+        url: "/getUser",
+        dataType: "json",
+        success: function (response) {
+
+          if (response.err) {
+            console.log("Get items failed!");
+          }
+          else {
+            var divId = $("#ballsModal-body");
+
+            console.log(response[0]);
+
+            var result = "";
+            divId.empty();
+
+            response[0].items.forEach(function (item) {
+
+              if (item.name == "Ball Basic" || item.name == "Ball Pink" || item.name == "Ball Blue" ||
+                item.name == "MasterBall" || item.name == "UltraBall" || item.name == "Premiere Ball") {
+                result = '<div class="col-lg-3 col-sm-6 center" id="' + item._id + '"><img class="ballz" height="82" src="' + item.imageURL + '"><br>'
+                  + '<h5> <b>' + item.name + '</h5>' + '<br>' + item.amount + '  ' + ' </div>';
+                divId.append(result);
+              }
+
+            });
+
+
+            $('#BallsModal').modal('show');
+          }
+
+        },
+        error: function (response) {
+          console.log(response);
+        }
+      });
+    });
+    //get name of chosen ball
+    $(document).on('click', '.ballz', function () {
+      var nameItem = $(this).next().next().children('b').html();
+      //alert("You switched to " + nameItem);
+      var newSrc = "images/items/ball.png";
+      switch (nameItem) {
+        case "Ball Basic":
+          newSrc = "images/items/ball.png"
+          break;
+        case "Ball Pink":
+          newSrc = "images/items/balltraitim.png"
+          break;
+        case "MasterBall":
+          newSrc = "images/items/MasterBall.png"
+          break;
+        case "Ball Blue":
+          newSrc = "images/items/ballxanhduong.png"
+          break;
+        case "Ball Green":
+          newSrc = "images/items/ballxanhla.png"
+          break;
+        case "UltraBall":
+          newSrc = "images/items/ultraball.png"
+          break;
+        case "Premiere Ball":
+          newSrc = "images/items/PremiereBall.png"
+          break;
+        default:
+          newSrc = "images/items/ball.png"
+      }
+      $('#chooseBall').attr("src", newSrc);
+      $('#BallsModal').modal('hide');
+      ballName = nameItem;
+    });
+
+    // Get name of pokemon need to feed 
+    var pkm_id;
+    $(document).on('click', '.pkmZ', function () {
+      var pokemonID = $(this).parent().attr('id');
+      pkm_id = pokemonID;
+      //console.log("Pokemon ID: "+pokemonID);
+      //$(this).next().next().next().html("100");
+      // var level=parseInt($(this).next().next().next().children('p').html());
+      // $(this).next().next().next().children('p').html(level+2);
+      event.preventDefault();
+      //ajax init candy list 
+      $.ajax({
+        type: "get",
+        url: "/getUser",
+        dataType: "json",
+        success: function (response) {
+
+          if (response.err) {
+            console.log("Get items failed!");
+          }
+          else {
+            var divId = $("#CandyModal-body");
+
+            console.log(response[0]);
+
+            var result = "";
+            divId.empty();
+
+            response[0].items.forEach(function (item) {
+
+              if (item.name == "Banana Candy" || item.name == "Grapes Candy" || item.name == "Pineapple" ||
+                item.name == "Sun Candy" || item.name == "Leaf Candy") {
+                result = '<div class="col-lg-3 col-sm-6 center" id="' + item._id + '"><img class="Candyz" height="82" src="' + item.imageURL + '"><br>'
+                  + '<h5> <b>' + item.name + '</h5>' + + item.amount + '  ' + ' </div>';
+                divId.append(result);
+              }
+
+            });
+            $('#CandyModal').modal('show');
+          }
+        },
+        error: function (response) {
+          console.log(response);
+        }
+      });
+
+    });
+
+    // bắt sự kiện cho ăn kẹo
+    $(document).on('click', '.Candyz', function () {
+      var nameCandy = $(this).next().next().children('b').html();
+      var CandyID = $(this).parent().attr('id');
+      var pokemonID = pkm_id;
+      // console.log(nameCandy);
+      // console.log("Pokemon id: "+pokemonID);
+      //Ajax send candy to server => feed candy to pokemon
+      $.ajax({
+        type: "post",
+        url: "/CandyFed",
+        data:
+        {
+          pokemonID: pokemonID,
+          nameCandy: nameCandy,
+        },
+        dataType: "json",
+        success: function (res) {
+          if (res.noCandy == true) {
+            alert("Out of Candy. Please go to Shop");
+          }
+          else {
+            var level = parseInt($("#" + pokemonID).children('img').next().next().next().children('p').html());
+            console.log("level: " + level);
+            $("#" + pokemonID).children('img').next().next().next().children('p').html(level + 2);// cộng level pokemon
+            var amount = parseInt($("#" + CandyID).children('img').next().next().next().html());
+            $("#" + CandyID).children('img').next().next().next().html(amount - 1);// trừ số lượng kẹo
+            //$(this).next().next().next().html(amount-1);
+            if (res.evol == "no") {
+              //nothing
+            }
+            else {
+              // console.log(res.evol);
+              $("#" + pokemonID).children('img').attr("src", res.img);
+              var divId = $("#open-gift-model-content");
+              var result = '<img style=" width: 39%; margin-top: -7%;" class="gift-open-img" src="' + res.evol + '">';
+
+              divId.empty();
+              divId.append(result);
+              divId.hide();
+
+              document.getElementById("open-gift-model").style.height = "100%";
+              divId.fadeIn(1000);
+
+              $("#open-gift-model-close").show();
+              function closeGiftModel() {
+                document.getElementById("open-gift-model").style.height = "0%";
+              }
+            }
+
+
+          }
+        },
+        error: function (jqXHR, textStatus, err) {
+          //show error message
+          console.log('text status ' + textStatus + ', err ' + err);
+        },
+      });
+
+    });
+
+
+    //function Tạo MAP
+    var marker;
+    var pos, marker1;
+    let p = new Array();
+    var numDeltas = 100;
+    var delay = 10; //milliseconds
+    var i = 0;
+    var deltaLat;
+    var deltaLng;
+
+
+    function initMap() {
+
+      var vitriSPKT = { lat: 10.854317, lng: 106.769203 };
+      // var vitriSPKT = new google.maps.LatLng(position[0], position[1]);
+      //Custom MAP nè _ Code JavaScript nhan
+      var map = new google.maps.Map(document.getElementById('map'),
+        {
+          scaleControl: false,
+          zoomControl: false,
+          scrollwheel: false,
+          zoom: 19.5,
+          mapTypeControl: false,
+          center: vitriSPKT,
+          gestureHandling: 'cooperative',
+          styles:
+            [
+              {
+                featureType: 'all',
+                elementType: 'labels',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'administrative.locality',
+                elementType: 'all',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'landscape',
+                elementType: 'all',
+                stylers: [
+                  {
+                    color: '#AFFFA0'
+                  }
+                ]
+              },
+              {
+                featureType: 'poi',
+                elementType: 'all',
+                stylers: [
+                  {
+                    color: '#EAFFE5'
+                  }
+                ]
+              },
+              {
+                featureType: 'poi.business',
+                elementType: 'all',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'poi.government',
+                elementType: 'all',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'poi.park',
+                elementType: 'geometry',
+                stylers: [
+                  {
+                    color: '#f9f8c7'
+                  }
+                ]
+              },
+              {
+                featureType: 'poi.park',
+                elementType: 'labels',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'road',
+                elementType: 'geometry',
+                stylers: [
+                  {
+                    color: '#59A499'
+                  }
+                ]
+              },
+              {
+                featureType: 'road',
+                elementType: 'geometry.stroke',
+                stylers: [
+                  {
+                    color: '#F0FF8D'
+                  },
+                  {
+                    weight: 2.2
+                  }
+                ]
+              },
+              {
+                featureType: 'transit.line',
+                elementType: 'geometry',
+                stylers: [
+                  {
+                    visibility: 'off'
+                  }
+                ]
+              },
+              {
+                featureType: 'transit.station.airport',
+                elementType: 'geometry.fill',
+                stylers: [
+                  {
+                    color: '#fdfabf'
+                  }
+                ]
+              },
+              {
+                featureType: 'water',
+                elementType: 'all',
+                stylers: [
+                  {
+                    visibility: 'on'
+                  },
+                  {
+                    color: '#1A87D6'
+                  }
+                ]
+              }
+            ]
+        }
+      );
+
+      var infoWindow = new google.maps.InfoWindow;
+      // Bắt vị trí GPS
+      var icontakashi = "../public/img/nhanvat5.png"
+
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          infoWindow.setPosition(pos);
+
+          map.setCenter(pos);
+          //Dấu chám độ GPS result
+          $('<div/>').addClass('centerMarker').appendTo(map.getDiv())
+
+
+
+        },
+
+
+          function () {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+      }
+      else {
+        alert('Không thể tìm thấy vị trí!')
+      }
+
+      //PokeStop show up
+
+      $(document).ready(function () {
+        $.getJSON("/getPokestop", function (data) {
+          data.forEach(pkStop => {
+            addPokeStop(pkStop);
+          });
+        });
+      })
+
+      // Pokemon show up
+      setInterval(function () {
+        //showPokeStop();
+        var poke1 = addPokeMarker(pokelist[Math.floor(Math.random() * 10) + 1]);
+
+        var poke2 = addPokeMarker(pokelist[Math.floor(Math.random() * 11)]);
+
+        setTimeout(function () {
+          poke1.setMap(null);
+        }, 4000);
+        setTimeout(function () {
+          poke2.setMap(null);
+        }, 5000);
+
+      }, 13000);
+
+
+
+      // Add Pokestop marker function
+      function addPokeStop(props) {
+
+        var icon = {
+          url: "../public/img/pokestop.png", // url
+          scaledSize: new google.maps.Size(150, 150), // scaled size
+          origin: new google.maps.Point(0, 0), // origin
+          anchor: new google.maps.Point(0, 0) // anchor
+        };
+        var marker = new google.maps.Marker({
+          position: props.pos,
+          map: map,
+          icon: icon
+        });
+
+        marker.addListener('click', () => {
+          if (google.maps.geometry.spherical.computeDistanceBetween(marker.getPosition(), map.getCenter()) <= 30) {
+
+            var count2 = Math.floor(Math.random() * 5);
+            //var ballNameArray=["Ball Pink","Ball Basic","MasterBall","Ball Blue","Ball Green","UltraBall","Premiere Ball"];
+            var BallArray = [
+              { name: "Ball Basic", img: "images/items/ball.png" },
+              { name: "Ball Pink", img: "images/items/balltraitim.png" },
+              { name: "MasterBall", img: "images/items/MasterBall.png" },
+              { name: "Ball Blue", img: "images/items/ballxanhduong.png" },
+              { name: "Ball Green", img: "images/items/ballxanhla.png" },
+              { name: "UltraBall", img: "images/items/ultraball.png" },
+              { name: "Premiere Ball", img: "images/items/PremiereBall.png" }
+            ]
+            var rand = Math.floor(Math.random() * 6);
+            var ballName = BallArray[rand].name;
+            var soLuongBall = Math.floor(Math.random() * 7) + 1;
+            var imgBall = BallArray[rand].img;
+            // code to add pokemon in database
+            var infoWindow = new google.maps.InfoWindow({
+              content: "<h3>Congrats</h3>,<b> you've got " + soLuongBall + "</b> balls of <b>" + ballName
+            });
+            infoWindow.open(map, marker);
+            setTimeout(function () {
+              infoWindow.close();
+            }, 2000);
+            $.ajax({
+              type: "post",
+              url: "/QuayPokeStop",
+              data:
+              {
+                ballName: ballName,
+                soLuongBall: soLuongBall,
+                imgBall: imgBall
+              },
+              dataType: "json",
+              success: function (res) {
+                // do nothing
+              },
+              error: function (jqXHR, textStatus, err) {
+                //show error message
+                console.log('text status ' + textStatus + ', err ' + err);
+              },
+            });
+          }
+          else {
+            var infoWindow = new google.maps.InfoWindow({
+              content: "<h1>Far</h1>"
+            });
+            infoWindow.open(map, marker);
+            setTimeout(function () {
+              infoWindow.close();
+            }, 2000);
+          }
+        });
+
+      }
+
+
+      // Add Pokemon Marker Function
+      function addPokeMarker(props) {
+
+        //vi tri hien tai cua user
+        var mypos = map.getCenter();
+
+        var pos = { lat: mypos.lat() + (Math.random() * 50) / 100000, lng: mypos.lng() + (Math.random() * 101) / 100000 };
+
+        var marker = new google.maps.Marker({
+          position: pos,
+          map: map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        //-----props.iconImage
+        if (props.imageURL) {
+          // Set icon image
+          marker.setIcon(props.imageURL);
+        }
+
+        // Check content
+        if (props.name) {
+          var infoWindow = new google.maps.InfoWindow({
+            content: props.name
+          });
+
+          marker.addListener('click', function () {
+            //var ballName = "Ball Pink";
+
+
+
+            if (google.maps.geometry.spherical.computeDistanceBetween(marker.getPosition(), map.getCenter()) <= 30) {
+              //enable to catch 
+              //Ajax tru pokeball
+              $.ajax({
+                type: "post",
+                url: "/ballminus",
+                async: false,
+                data:
+                {
+                  ballName: ballName
+                },
+                dataType: "json",
+                success: function (res) {
+                  if (res.noBall == true) {
+                    $('#HetBongModal').modal('show');
+                    $('#btnshopbong').click(function () {
+                      $('#HetBongModal').modal('hide');
+                      $('#shopModal').modal('show');
+                    })
+                    $('#btnvideobong').click(function () {
+                      $('#HetBongModal').modal('hide');
+                      $('#VideoModal').modal('show');
+                    })
+                    $('#VideoModal').on('hidden.bs.modal', function () {
+                      // do something here
+                      stopVideo();
+                    })
+
+                    // function stopVideo() {
+                    //   player.stopVideo();
+                    // }
+                    // $('#VideoModal').on('hidden.bs.modal',function(){
+                    //   $('#VideoModal').modal('show');
+                    // })
+                    // $('#VideoModal').modal('hide');
+                    // $('#shopModal').modal('show');
+                    // alert("Not enough balls. Let's go to SHOP");
+                  }
+                  else {
+                    //alert("enough ball to catch");
+                    //Catch for sure
+                    if (Math.floor(Math.random() * 10) > 5) {
+                      // code to add pokemon in database
+                      var infoWindow = new google.maps.InfoWindow({
+                        content: props.name
+                        //"<h1>Close</h1>"
+                      });
+                      infoWindow.open(map, marker);
+                      setTimeout(function () {
+                        infoWindow.close();
+                      }, 1000);
+
+                      // Thông báo cho server user này đã bắt được pokemon
+                      console.log('test catched pokemon');
+                      //catchedPokemon(marker);
+
+                      $.ajax({
+                        type: "post",
+                        url: "/gotcha",
+
+                        data:
+                        {
+                          pokeName: props.name,
+                          pokeType: props.type,
+                          pokeRate: props.rate,
+                          pokeImageURL: props.imageURL,
+                          pokeLevel: props.level,
+                          pokelevelStage2: props.levelStage2,
+                          pokelevelStage3: props.levelStage3,
+                          pokestage: props.stage,
+                          pokeimgStage2: props.imgStage2,
+                          pokeimgStage3: props.imgStage3,
+                          imgEvolState2: props.imgEvolState2,
+                          imgEvolState3: props.imgEvolState3
+                        },
+                        dataType: "json",
+                        success: function (res) {
+
+                          if (res.newLevel) {
+                            $("#leveluser").text('Level: ' + res.newLevel);
+                            alert("Congrats, Level Up");
+                          }
+                          else {
+                            //do nothing
+                          }
+
+                        },
+                        error: function (jqXHR, textStatus, err) {
+                          //show error message
+                          console.log('text status ' + textStatus + ', err ' + err);
+                        },
+                      });
+                      var Newpos = { lat: marker.getPosition().lat(), lng: marker.getPosition().lng() };
+                      marker.setVisible(false);
+                      var newicon = {
+                        url: "../public/img/PokeballCatched.png", // url
+                        scaledSize: new google.maps.Size(30, 30), // scaled size
+                        origin: new google.maps.Point(0, 0), // origin
+                        anchor: new google.maps.Point(0, 0) // anchor
+                      };
+                      var marker2 = new google.maps.Marker({
+                        position: Newpos,
+                        map: map,
+                        icon: newicon,
+                        animation: google.maps.Animation.BOUNCE
+                      });
+                      setTimeout(function () {
+                        marker2.setVisible(false);
+                      }, 2000);
+                      //marker.setMap(null);
+                    }//--end if
+                    else {
+                      var infoWindow = new google.maps.InfoWindow({
+                        content: "<h2>You can't catch me plezzz </h2>"
+                      });
+                      infoWindow.open(map, marker);
+                      setTimeout(function () {
+                        infoWindow.close();
+                      }, 2000);
+                    }
+                  }//--end ELSE
+                },
+                error: function (jqXHR, textStatus, err) {
+                  //show error message
+                  console.log('text status ' + textStatus + ', err ' + err);
+                },
+              });
+
+
+            }
+            else {
+              var infoWindow = new google.maps.InfoWindow({
+                content: "<h2>You can't catch me plezzz </h2>"
+              });
+              infoWindow.open(map, marker);
+              setTimeout(function () {
+                infoWindow.close();
+              }, 2000);
+            }
+
+            //infoWindow.open(map, marker);
+          });
+        }
+        return marker;
+      }
+
+      // BEGIN SOCKET 
+      // var url = location.protocol + '//' + window.location.hostname + ':5000';
+      // var socket = io.connect(url);
+
+      // socket.on('connect', function (data) {
+      //   socket.emit('join', 'Hello server from client socket id: ' + socket.id);
+      // });
+
+      // // Notification to server: This pokemon was catched by user
+      // function catchedPokemon(pokemon_id) {
+
+      //   //console.log('bat duoc pokemon: ' + pokemon_id);
+
+      //   socket.emit('catchedPokemon', pokemon_id);
+      // }
+
+
+      // // listen hidePokemon event
+      // socket.on('hidePokemon', function (pokemon_id) {
+      //   console.log("pokemon bien mat: " + pokemon_id);
+      // });
+
+      // // listen hideAllPokemon event
+      // socket.on('hideAllPokemons', function () {
+      //   console.log('Hide all pokemons');
+      // });
+
+      // // listen showPokemon event
+      // socket.on('showPokemons', function (lstPokemons) {
+      //   var LegendPoke ={name:"Mewtwo",imageURL:"../public/img/mewtwo.gif"};
+      //   var poke1 = addPokeMarker(LegendPoke);
+
+      // });
+
+      // END SOCKET
+
+    }// end of init
+
+      //API Google MAP _ Lấy API từ Console
+  </script>
+
+  <script src="js/socket.io.js"></script>
+  <script src="js/socket.js"></script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7b772LSkOv7NBUUA_QiUl5SQogc0MpIY&libraries=geometry&callback=initMap"></script>
+  <script src="js/pokemon.js"></script>
+  <script src="js/pokedex.js"></script>
+  <script src="js/items.js"></script>
+  <script src="js/shop.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/friend.js"></script>
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/allBanner.js"></script>
+  <script>
+    initUser();
+  </script>
+</body>
+
+</html>

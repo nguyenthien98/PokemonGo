@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="asset/css/menu.css">
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" style="width: 330px;padding-top: 45px;" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+            <li style="display: flex">
+                <img style="width: 35%; border-radius: 50%;" class="menuPic" src="asset/img/ash.png" />
+                <div>
+                    <ul>
+                        <li class="title">
+                            Name
+                        </li>
+                        <li style="color: white;font-size:150%">
+                            Level
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <hr>
+            <li style="display: flex">
+                <img class="menuPic" src="asset/img/user.png" />
+                <div>
+                   <div class="title">Profile</div>
+                </div>
+            </li>
+            <li style="display: flex;background: gray">
+                <img class="menuPic" src="asset/img/mission.png" />
+                <div>
+                   <div class="title">Mission</div>
+                </div>
+            </li>
+            <li style="display: flex;">
+                <img class="menuPic" src="asset/img/pokemon_PNG93.png"i />
+                <div>
+                   <div class="title">Pokemon</div>
+                </div>
+            </li>
+            <li style="display: flex;background: gray">
+                <img class="menuPic" src="asset/img/cart.png"i />
+                <div>
+                   <div class="title">Items</div>
+                </div>
+            </li>
+            <li style="display: flex;">
+                <img class="menuPic" src="asset/img/pokedex.png"i />
+                <div>
+                   <div class="title">Pokedex</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    
+    <img onclick="openNav()" src="asset/img/pokeball.jpg" id="pokeball"/>
+
+<img style="z-index:-3" src="asset/img/map.jpg">
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "330px";
+            document.getElementById("pokeball").style.width= "0";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("pokeball").style.width= "5%";
+        }
+    </script>
+
+</body>
+
+</html>

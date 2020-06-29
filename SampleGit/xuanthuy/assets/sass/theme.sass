@@ -1,0 +1,927 @@
+/*-----------------------------------------------------------------
+/*    Project         : Ashton - Resume / vCard / Portfolio Template*/
+/*    Version         : v1.0*/
+/*    Last update     : N/A*/
+/*    Author          : design-path*/
+/*    Support email   : https://themeforest.net/user/design-path*/
+/*-----------------------------------------------------------------*/
+
+/*================= TABLE Of Content ==========
+    01. variable, mixins
+    02. Base CSS
+    03. Page loader animation
+    04. Left side vertical navbar
+    05. Main wrapper
+    06. Home
+    07. About
+    08. Skills
+    09. Experience & Education
+    10. Portfolio
+    11. Contact
+    12. Responsive
+/*==============================================*/
+
+/*import google font*/
+@import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,700i,800'
+
+/*Global variable*/
+/*==================*/
+/*Colors
+$base-color: #676a6a
+$heading-color: #444444
+$white: #fff
+$black: #000
+$light-dark: #dbdbdb
+$port-nav: #f3f3f3
+/*Social color*/
+$facebook: #3b5999
+$twitter: #55acee
+$instagram: #e4405f
+$linkedin: #0077B5
+$dribbble: #ea4c89
+
+$brand-color1: #ff4c4c
+$brand-color2: #ff6f6f
+
+/*bg-colors*/
+$bg-color-1: linear-gradient(130deg, rgba(31, 209, 249, 0.15), rgba(182, 33, 254, 0.15))
+$bg-color-2: #F8F8F8
+/*Fonts*/
+$base-font-family: 'Poppins', sans-serif
+$base-font-size: 16px
+$heading-font-family: $base-font-family
+
+/*Line-Height*/
+$base-line-height: 1.8
+$btn-line-height: 1
+$heading-line-height: 1.2
+
+/*Others*/
+$base-border-radius: 3px
+$base-z-index: 0
+$base-box-shadow: 0px 6px 12px 0px rgb(216, 216, 216)
+$base-transition: all 0.4s ease 0s
+$form-box-shadown: 0px 0px 3px 0px #ff6f6f
+
+/*Border*/
+$base-border-color: $light-dark
+$base-border: 1px solid $light-dark
+
+/*Animations duration*/
+$base-duration: 400ms
+$base-timing: ease
+
+/*Global Mixins*/
+/*===============*/
+@mixin after($width, $height, $left, $right, $top, $bottom, $radius)
+    position: absolute
+    content: ""
+    width: $width
+    height: $height
+    left: $left
+    right: $right
+    top: $top
+    bottom: $bottom
+    border-radius: $radius
+    
+/*Import Bootstrap and others*/
+@import "bootstrap/bootstrap"
+/*Base CSS*/
+/*==========*/
+*
+    margin: 0
+    padding: 0
+    list-style: none
+    box-sizing: border-box
+html
+    font-size: 100%
+    overflow-x: hidden !important
+    position: relative
+    height: 100%
+body
+    font-family: $base-font-family
+    font-size: $base-font-size
+    color: $base-color
+    font-weight: 300
+    line-height: 1.8
+    background-color: $bg-color-2
+    -webkit-text-size-adjust: 100%
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    height: 100%
+a
+    color: $base-color
+    &:hover
+        color: $brand-color1
+a, button
+    transition: $base-transition
+a, a:hover, a:visited, a:active, a:focus, button, button:hover,button:active, button:focus
+    outline: 0px
+    outline-offset: 0px
+    text-decoration: none
+p
+    margin: 0 0 0.75rem 0
+    
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+    font-family: $heading-font-family
+    font-weight: 500
+    margin: 0 0 0.75rem 0
+    letter-spacing: 0px
+    line-height: $heading-line-height
+    color: $heading-color
+img
+    max-width: 100%
+p.lead
+    font-size: 1.25em
+.pos-r
+    position: relative
+.pos-a
+    position: absolute
+    
+.ove-h
+    overflow: hidden
+.ove-v
+    overflow: visible
+.opa-0
+    opacity: 0
+.opa-1
+    opacity: 1.0
+.vis-h
+    visibility: hidden
+.vis-v
+    visibility: visible
+.m-0
+    margin: 0
+.p-0
+    padding: 0
+.float-left
+    float: left
+.float-right
+    float: right
+.vh-100
+    height: 100vh
+/*Z-index*/
+.z-index-5
+    z-index: 5
+.z-index-10
+    z-index: 10
+.z-index-15
+    z-index: 15
+.z-index-20
+    z-index: 20
+.z-index-25
+    z-index: 25
+/*Button style*/
+.btn
+    font-family: $heading-font-family
+    font-size: 0.75em
+    letter-spacing: 1px
+    padding: 15px 25px
+    line-height: $btn-line-height
+    color: $white
+    border-radius: $base-border-radius
+    background-color: $brand-color1
+    appearance: none
+    cursor: pointer
+    display: inline-block
+    -webkit-font-smoothing: antialiased
+    font-weight: 600
+    text-align: center
+    text-decoration: none
+    user-select: none
+    vertical-align: middle
+    white-space: nowrap
+    transition: $base-transition
+    text-transform: uppercase
+    &:hover
+        background-color: $brand-color2
+        color: $white
+        box-shadow: $base-box-shadow
+    &:focus
+        outline: 0px
+        outline-offset: 0px
+        box-shadow: none
+    &:active
+        box-shadow: none
+.btn-brand
+    border: 2px solid transparent
+    border-radius: $base-border-radius
+    background-color: $brand-color1
+    color: $white
+    &:hover
+        border: 2px solid $brand-color1
+        background-color: transparent
+        color: $brand-color1
+.btn-brand-border
+    border: 2px solid $brand-color1
+    background-color: transparent
+    color: $brand-color1
+    &:hover
+        background-color: $brand-color1
+        border: 2px solid transparent
+        color: $white
+    
+/*Form Input*/
+.form-control
+    font-family: $base-font-family
+    font-size: 1em
+    appearance: none
+    background-color: transparent
+    border: $base-border
+    border-radius: $base-border-radius
+    box-shadow: none
+    box-sizing: border-box
+    margin-bottom: 0
+    padding: 12px 25px 12px 35px
+    transition: $base-transition
+    width: 100%
+    &:hover
+        border-color: $brand-color2
+    &:focus
+        border: none
+        box-shadow: $form-box-shadown
+        outline: 0px
+    &::placeholder
+        color: #a5a5a5
+
+textarea
+    resize: vertical
+    
+/*Space Padding*/
+.py-100
+    padding: 100px 0px
+.pt-50
+    padding-top: 50px
+.pt-45
+    padding-top: 45px
+.pt-40
+    padding-top: 40px
+.pt-35
+    padding-top: 35px
+.pt-30
+    padding-top: 30px
+.pb-50
+    padding-bottom: 50px
+.pb-45
+    padding-bottom: 45px
+.pb-40
+    padding-bottom: 40px
+.pb-35
+    padding-bottom: 35px
+.pb-30
+    padding-bottom: 30px
+    
+/*Space Margin*/
+.mt-70
+    margin-top: 70px
+.mt-60
+    margin-top: 60px
+.mt-50
+    margin-top: 50px
+.mt-45
+    margin-top: 45px
+.mt-40
+    margin-top: 40px
+.mt-35
+    margin-top: 35px
+.mt-30
+    margin-top: 30px
+.mb-70
+    margin-bottom: 70px
+.mb-60
+    margin-bottom: 60px
+.mb-50
+    margin-bottom: 50px
+.mb-45
+    margin-bottom: 45px
+.mb-40
+    margin-bottom: 40px
+.mb-35
+    margin-bottom: 35px
+.mb-30
+    margin-bottom: 30px
+    
+.sec-t
+    margin-bottom: 2.5rem
+    h2
+        letter-spacing: 1px
+        text-transform: uppercase
+        font-weight: 600
+        font-size: 2.95em
+        position: relative
+        margin-bottom: 0px
+        text-shadow: 0px 1px 1px #b4b4b4
+        span
+            color: $brand-color1
+        &::after
+            content: ""
+            position: absolute
+            left: 0
+            bottom: 0
+            width: 150px
+            height: 2px
+            background: $brand-color1
+            margin-bottom: -5px
+.sub-head
+    margin-bottom: 2rem
+    h4
+        font-size: 1em
+        font-weight: 500
+        text-transform: uppercase
+        letter-spacing: 1px
+        margin: 0
+        padding-bottom: 0.75em
+        i
+            font-size: 1em
+            font-weight: 600
+    p
+        text-align: justify
+/*Preloader*/
+/*===============*/
+#spinner
+    position: absolute
+    width: 100%
+    height: 100%
+    display: block
+    background-color: $white
+    z-index: 9999
+    opacity: 1
+    
+#spinner-inner
+    display: flex
+    width: 70px
+    height: 70px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+        
+.double-bounce1, .double-bounce2
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    background-color: $brand-color1
+    opacity: 0.6
+    position: absolute
+    top: 0
+    left: 0
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out
+    animation: sk-bounce 2.0s infinite ease-in-out
+.double-bounce2 
+    -webkit-animation-delay: -1.0s
+    animation-delay: -1.0s
+        
+@-webkit-keyframes sk-bounce
+    0%,100%
+        -webkit-transform: scale(0.0)
+    50%
+        -webkit-transform: scale(1.0)
+
+@keyframes sk-bounce
+    0%, 100%
+        transform: scale(0.0)
+        -webkit-transform: scale(0.0)
+    50%
+        transform: scale(1.0)
+        -webkit-transform: scale(1.0)
+/*Another background color*/
+body.dark, body.dark, header.dark
+    background: $bg-color-1
+/*Header*/
+/*==========*/
+#header
+    position: fixed
+    left: 0
+    top: 0
+    width: 18rem
+    overflow-X: hidden 
+    display: inline-block
+    overflow-y: auto
+    height: 100%
+    padding: 0.75rem 0 0 2rem
+    background-color: $white
+    box-shadow: 0px 0px 10px #dadada
+    z-index: 999
+    background-color: $white
+
+    /*Navbar*/
+    .navbar
+        padding: 0px
+    .navbar-nav
+        width: 100%
+    li.nav-item
+        border-bottom: 1px solid #dcdcdc
+        &::after
+            content: ""
+            width: 100%
+            height: 1px
+            color: $brand-color1
+            background-color: $brand-color1
+    .navbar-expand-lg .navbar-nav .nav-link
+        padding-right: 0
+        padding-left: 0
+    .navbar-light .navbar-nav .nav-link
+        color: $base-color
+    a.nav-link
+        padding: 1.25rem 0 
+        text-transform: uppercase
+        letter-spacing: 1px
+        font-family: $base-font-family
+        font-size: 0.87em
+        color: $base-color
+        font-weight: 500
+        position: relative
+        transition: all 0.5s ease 0s
+        &::before
+            @include after(100%, 1px, 0px, null, null, 0px, null)
+            background-color: $brand-color1
+            visibility: hidden
+            transform: scaleX(0)
+            transition: $base-transition
+        &:hover:not(.active)::before
+            visibility: visible
+            transform: scaleX(1)
+        &:hover li.nav-item
+            border-bottom: none
+            color: $brand-color1
+    .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active
+        border-bottom: 1px solid $brand-color1
+        color: $brand-color1
+    .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus
+        color: $brand-color1
+    .contact
+        margin-top: 3.5rem
+        .contact-item
+            .list-inline-item:not(:last-child)
+                margin-right: 0.75rem
+            margin-top: 20px
+            h5
+                font-size: 0.9em
+                text-transform: uppercase
+            p, a
+                font-size: 0.9em
+            i[class|=icon]
+                font-size: 1.25em
+/*Malihu Scroll*/
+.mCSB_inside>.mCSB_container
+    margin-right: 15px
+/*Main Wrapper*/
+#wrapper
+    position: relative
+    top: 0
+    margin-left: 18rem
+    padding: 0 6rem
+    height: 100%
+    /*Full layout*/
+    /*=============*/
+    .page
+        width: 100%
+        height: 0
+        position: relative
+        display: none
+        opacity: 0
+        top: auto
+        left: 0
+        visibility: hidden
+        -webkit-backface-visibility: hidden
+        backface-visibility: hidden
+        -webkit-transform-style: preserve-3d
+        transform-style: preserve-3d
+        
+    .page.page-current
+        visibility: visible
+        z-index: 90
+        opacity: 1
+        height: auto
+        min-height: 100%
+        display: flex
+
+/*Home*/
+/*==========*/
+.home
+    .row
+        height: 100vh
+    h5
+        font-size: 1.15em
+        text-transform: uppercase
+        font-weight: 300
+        letter-spacing: 5px
+        margin-bottom: 0.5rem
+        span
+            font-weight: 500
+    h2
+        font-size: 2.9em
+        font-weight: 600
+        margin-bottom: 2rem
+        text-shadow: 0px 1px 1px #b4b4b4
+        span
+            color: $brand-color1
+        
+    .lead
+        font-size: 1.15em
+        margin-bottom: 2.25rem
+        text-align: justify
+/*About*/
+/*================*/
+.about
+    ul.list-unstyled
+        padding-left: 0
+        border-left: none
+        li
+            span
+                font-weight: 400
+                padding-right: 0.75rem
+                color: $heading-color
+    .project
+        margin-right: 7rem
+        &:last-child
+            margin-right: 0
+        i
+            font-size: 2.95em
+            display: inline-block
+            padding-bottom: 1rem
+            color: $light-dark
+        h4
+            font-size: 2.95em
+            color: $brand-color1
+            font-weight: 600
+            margin-bottom: 1rem
+            &::after
+                content: "+"
+        h5
+            font-size: 1em
+            text-transform: uppercase
+            letter-spacing: 1px
+            margin-bottom: 0
+            font-weight: 400
+/*Skills Section*/
+/*==================*/
+.skills
+    .skill-item
+        margin-bottom: 1.5rem
+        .skill-title
+            font-size: 0.9em
+            font-weight: normal
+            padding-bottom: 0.25rem
+            display: inline-block
+            text-transform: uppercase
+        .progress
+            overflow: visible
+            height: 10px
+            border: 1px solid #ffb8b8
+            .progress-bar
+                position: relative
+                background-color: $brand-color1
+                animation: progres 4s ease-in-out 0s
+                &::after
+                    @include after(1px, 22px, null, 0px, -6px, null, null)
+                    background-color: $brand-color1
+                span.label
+                    position: absolute
+                    right: -10px
+                    top: -35px
+                    color: $base-color
+                    font-size: 1em
+                    font-weight: 500
+                    &::after
+                        content: "%"
+    .comunicate-skill
+        margin-top: 2rem
+    .comunicate-skill-items
+        li.list-inline-item
+            margin-right: 6rem
+            &:last-child
+                margin-right: 0px
+            h5
+                font-size: 1em
+                text-transform: uppercase
+            .comu-icon
+                i
+                    color: $brand-color1
+                    padding: 2px
+@keyframes progres
+    0%
+        width: 1%
+    100%
+        max-width: 100%
+/*Experience & Education*/
+/*===========================*/
+ul.list-unstyled, ul.list-unstyled
+    padding-left: 1.75rem
+    border-left: $base-border
+    margin-bottom: 0px
+    text-align: justify
+        
+    li.expe-item, li.edu-item
+        margin-bottom: 1.75rem
+        border-bottom: $base-border
+        &:last-child
+            margin-bottom: 0px
+            border-bottom: none
+        h5
+            text-transform: uppercase
+            font-size: 1em
+            font-weight: 300
+            margin-bottom: 5px
+            position: relative
+            span
+                font-weight: 500
+            &::before
+                @include after(15px, 15px, -36px, null, null, null, 50%)
+                border: 1px solid $light-dark
+                background: #fff
+                transition: background-color 1s ease 0s
+        span.calendar
+            font-size: 0.75em
+            display: inline-block
+            margin-bottom: 1rem
+        &:hover h5::before
+            background: $brand-color1
+        p
+            padding-bottom: 0.75rem
+/*Portfolio*/
+/*==================*/
+.portfolio
+    visibility: visible
+    z-index: 90
+    opacity: 1
+    height: auto
+    min-height: 100%
+    display: flex
+    
+    ul.filter-btn
+        li.list-inline-item
+            text-transform: uppercase
+            font-size: 0.8125em
+            font-weight: 500
+            cursor: pointer
+            padding: 7px 20px
+            background: $port-nav
+            border-radius: $base-border-radius
+            transition: $base-transition
+            &:hover
+                box-shadow: $base-box-shadow
+        li.active
+            color: $white
+            background-color: $brand-color2
+            box-shadow: $base-box-shadow
+
+.grid-sizer
+    width: 100%
+/*Contact*/
+/*=============*/
+.contact
+    ul.list-unstyled
+        border-left: none
+        padding-left: 0
+        li.contact-item
+            margin-bottom: 1.5rem
+            h5
+                font-size: 0.875em
+                text-transform: uppercase
+                font-weight: 500
+            i
+                font-size: 1.15em
+                background-color: $brand-color1
+                border-radius: 50%
+                width: 40px
+                height: 40px
+                display: inline-flex
+                justify-content: center
+                align-items: center
+                color: $white
+            i.icon-social-facebook
+                background-color: $facebook
+            i.icon-social-twitter
+                background-color: $twitter
+            i.icon-social-instagram
+                background-color: $instagram
+            i.icon-social-linkedin
+                background-color: $linkedin
+            i.icon-social-dribbble
+                background-color: $dribbble
+    .form-group
+        width: 100%
+        position: relative
+        i.input-icon
+            position: absolute
+            left: 12px
+            top: 12px
+            color: #a5a5a5
+    label
+        width: 100%
+        font-size: 0.9em
+        color: $brand-color2
+        
+/*Responsive media query*/
+/*=======================*/
+/*Desktop Media*/
+@media only screen and(max-width: 1680px)
+    #header
+        width: 13rem
+    #wrapper
+        margin-left: 13rem
+        padding: 0 3rem
+    .home
+        h2
+            font-size: 2.75em
+        img
+            width: 80%
+    .sec-t h2
+        font-size: 2.75em
+    .about .project
+        h4, i
+            font-size: 2.75em
+@media only screen and(max-width: 1440px)
+    .home
+        h2
+            font-size: 2.52em
+        img
+            width: 80%
+    .sec-t h2
+        font-size: 2.52em
+    .about
+        .project
+            h4, i
+                font-size: 2.52em
+    .education
+        img
+            padding-left: 0.75rem
+            width: 90%
+    .about .project
+        margin-right: 5rem
+@media only screen and(max-width: 1366px)
+    .home
+        .col-xl-6
+            flex: 0 0 60%
+            max-width: 60%
+        h2
+            font-size: 2.58rem
+        img
+            width: 100%
+            padding-left: 0.75rem
+    .about
+        .project
+            margin-right: auto
+@media only screen and(max-width: 1199px)
+    #header
+        width: 12rem
+        padding: 0 0 0 1.25rem
+    #wrapper
+        margin-left: 12rem
+        padding: 0 2rem
+        overflow-x: hidden
+    .home
+        .row
+            height: auto
+        .col-xl-6
+            flex: 0 0 100%
+            max-width: 100%
+        padding: 6.25rem 0
+        img
+            width: 40%
+    .about .project
+        margin-right: auto
+        
+    .skills .comunicate-skill-items li.list-inline-item
+        margin-right: 4rem
+        
+/*Mobile Media*/
+@media only screen and(max-width: 991px)
+    body.dark, body.dark, header.dark
+        background: $bg-color-2
+    #header
+        z-index: 99
+        height: auto
+        background-color: $bg-color-2
+        box-shadow: none
+        padding-top: 1rem
+        
+        a.nav-link
+            padding: 0.75rem
+            font-size: 0.75em
+    #wrapper
+        margin-left: 0
+        overflow-x: hidden
+    .sec-t h2
+        font-size: 2.25em
+    .home
+        padding: 100px 0
+        h2
+            font-size: 2.5em
+        img
+            width: 40%
+            display: block
+            margin: 0 auto
+    .about .project h4, .about .project i
+        font-size: 2.25em
+    .skills .comunicate-skill-items li.list-inline-item
+        margin-right: auto
+        
+@media only screen and(max-width: 768px)
+    .btn
+        padding: 0.75rem 1.25rem
+    .home
+        h2
+            font-size: 2em
+        h5
+            font-size: 1em
+            letter-spacing: 2px
+        img
+            width: 50%
+        .lead
+            font-size: 1.15em
+    .sec-t h2
+        font-size: 2em
+    .about 
+        .project
+            margin-bottom: 1.5rem
+            &:last-child
+                margin-bottom: 0
+            h4, i
+                font-size: 2em
+            h5
+                font-size: 0.75em
+                letter-spacing: 0px
+    .skills .comunicate-skill-items li.list-inline-item
+        margin-right: auto
+        margin-bottom: 2rem
+        &:last-child
+            margin-bottom: 0
+        .comu-icon i
+            padding: 0
+    .portfolio ul.filter-btn li.list-inline-item
+        padding: 7px 18px
+        
+@media only screen and(max-width: 568px)
+    #wrapper
+        padding: 0 1rem
+    .sec-t h2
+        font-size: 1.75em
+    ul.list-unstyled, ul.list-unstyled
+        padding-left: 0
+        border-left: none
+    ul.list-unstyled li.expe-item h5::before, ul.list-unstyled li.edu-item h5::before
+        display: none
+    .about
+        ul.list-inline
+            .project:not(:last-child)
+                margin-right: 0.75rem
+    .skills .comunicate-skill-items
+        flex-direction: row
+        li.list-inline-item
+            margin: 0 auto 2rem
+            .comu-icon i
+                font-size: 0.8em
+            &:last-child
+                margin: 0 auto
+    .portfolio ul.filter-btn li.list-inline-item
+        padding: 7px 12px
+        margin-bottom: 1rem
+        &:last-child
+            margin-bottom: 0
+@media only screen and(max-width: 480px)
+    .btn
+        font-size: 10px
+    .home
+        img
+            width: 70%
+    .about
+        .btn
+            padding: 0.75rem 0.9rem
+        ul.list-inline
+            flex-wrap: wrap !important
+            flex-direction: column
+            justify-content: flex-start !important
+            .list-inline-item.project
+                margin: 0 auto 1.5rem
+    .skills .comunicate-skill-items
+        flex-direction: column
+        li.list-inline-item
+            .comu-icon i
+                padding: 0.1rem
+@media only screen and (max-width: 320px)
+    body
+        font-size: 0.8em
+    .sec-t h2
+        font-size: 1.25em
+        &::after
+            width: 80px
+    .home
+        .row
+            text-align: center
+        h2
+            font-size: 1.75em
+        h5
+            letter-spacing: 1px
+        .lead
+            font-size: 1em
+        .user-btn
+            display: inline-flex
+            align-items: center
+            flex-direction: column
+        .btn.btn-brand
+            margin-bottom: 1rem
+    .about
+        .btn-brand
+            margin-bottom: 1rem
