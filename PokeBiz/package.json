@@ -14,7 +14,7 @@
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "expressjs": "^1.0.1",
-    "mongoose": "^5.4.10",
+    "mongoose": "^5.7.5",
     "multer": "^1.4.1",
     "nodemon": "^1.18.9",
     "paypal-rest-sdk": "^1.8.1",
